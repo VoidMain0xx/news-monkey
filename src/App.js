@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Navbar from './Components/Navbar';
+import News from './Components/News';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Ensure that your environment variable is correctly set up and accessible.
+const APIkey = process.env.REACT_APP_API_KEY_LOCAL;
+console.log("API Key:", process.env.REACT_APP_API_KEY_LOCAL);
+
+
+export default class App extends Component {
+  render() {
+    return (
+      <>
+        <Navbar />
+        <News pageSize={10} APIkey={APIkey} />
+      </>
+    );
+  }
 }
-
-export default App;
